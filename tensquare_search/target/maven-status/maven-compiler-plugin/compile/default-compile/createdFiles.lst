@@ -1,0 +1,6 @@
+com\tensquare\search\pojo\Article.class
+com\tensquare\search\controller\ArticleController.class
+com\tensquare\search\dao\ArticleDao.class
+com\tensquare\search\service\ArticleService.class
+com\tensquare\search\config\ElasticsearchConfig.class
+com\tensquare\search\SearchApplication.class

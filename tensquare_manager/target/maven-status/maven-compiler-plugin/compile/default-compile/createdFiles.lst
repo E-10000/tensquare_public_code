@@ -1,0 +1,3 @@
+com\tensquare\manager\filter\ManagerFilter.class
+com\tensquare\manager\ManagerApplication.class
+com\tensquare\manager\controller\BaseExceptionHandler.class

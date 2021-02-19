@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tensquare</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>tensquare_manager</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>tensquare_commom</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+<!--        太高版本了，要下回旧版本的东西-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+    </dependencies>
+    <!--    build-->
+    <build>
+        <!--        名称-->
+        <finalName>app</finalName>
+        <plugins>
+            <!--            如果报错Cannot resolve plugin org.apache.maven.plugins:maven-site-plugin:3.3-->
+            <!--            那么打开仓库repository\org\apache\maven\plugins\maven-site-plugin 查看有哪些版本-->
+            <!--            然后查看maven的版本号，我的maven是3.6.3，那么maven-site-plugin要高过maven版本？-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+
+            <!--            springboot的插件-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--            docker的maven插件-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <!--                配置信息-->
+                <configuration>
+                    <!--                    IP地址-->
+                    <!--                    project.artifactId，就是上面的 <artifactId>tensquare_config</artifactId>-->
+                    <!--                    project.version就是  parent里的 <version>1.0-SNAPSHOT</version>  -->
+                    <imageName>192.168.12.128:5000/${project.artifactId}:${project.version}</imageName>
+                    <!--                    基础镜像，就是刚才配好的jdk-->
+                    <baseImage>jdk1.8</baseImage>
+                    <!--                    cmd命令，打包Java，执行 java -jar 名字.jar-->
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <!--                            照抄-->
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!--                    刚才设置的2375端口号，可以让所有IP地址都访问宿主机的docker-->
+                    <dockerHost>http://192.168.12.128:2375</dockerHost>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

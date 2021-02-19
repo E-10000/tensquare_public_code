@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      #base-dev.yml
+      name: base
+      profile: dev
+      uri: http://localhost:12000

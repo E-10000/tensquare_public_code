@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: web
+      profile: dev
+      uri: http://localhost:12000

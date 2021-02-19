@@ -1,0 +1,25 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: tensquare-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/E-10000/tensquare.git
+          username: 不告诉你
+          password: 不告诉你
+          force-pull: true
+  rabbitmq:
+    host: 192.168.12.128
+    username: guest
+    password: guest
+    port: 5672
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#        include: bus-refresh

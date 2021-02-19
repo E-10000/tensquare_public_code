@@ -1,0 +1,14 @@
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\clitnt\LabelClient.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\dao\ReplyDao.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\dao\ProblemDao.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\interceptor\JwtInterceptor.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\pojo\Reply.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\service\ReplyService.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\controller\ReplyController.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\controller\ProblemController.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\QaApplication.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\service\ProblemService.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\controller\BaseExceptionHandler.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\pojo\Problem.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\config\InterceptorConfig.java
+D:\idea\project\tensquare_all\tensquare\tensquare_qa\src\main\java\com\tensquare\qa\clitnt\impl\LabelClientImpl.java
